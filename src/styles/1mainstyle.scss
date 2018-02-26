@@ -1,6 +1,21 @@
 @import 'variables';
+@mixin font-face($fontname) {
+  font-family: #{$fontname};
+  src: url('assets/fonts/#{$fontname}.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  @include font-face(gotham);
+}
+
+@font-face {
+  @include font-face(gotham-book);
+}
 
 body {
+  margin: 0;
   font-family: sans-serif;
 }
 
@@ -38,6 +53,10 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+.__align-center {
+  justify-content: center;
 }
 
 .hidden {

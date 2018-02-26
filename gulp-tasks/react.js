@@ -32,6 +32,7 @@ gulp.task('jsx-lint', ['concatJsx'], () => {
 gulp.task('concatJsx', () => {
   return gulp.src([
     'src/scripts/components/import.jsx',
+    'src/scripts/containers/*.jsx',
     'src/scripts/components/*.jsx',
     'src/scripts/app.jsx'
   ])

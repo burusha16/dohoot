@@ -1,0 +1,54 @@
+// Colors:
+$blue: #4d90fe;
+$bonJour: #e2dee0;
+$cascade: #96a6a7;
+$green: #1baf5d;
+$orange: #f19e1f;
+$red: #e94e38;
+$tiara: #cad2d3;
+$violet: #88499c;
+$white: #ffffff;
+$whiteOp10: rgba(255, 255, 255, .1);
+$whiteOp20: rgba(255, 255, 255, .2);
+
+// Elements
+$headerBgc: $red;
+$headerNavbarColor: $cascade;
+$headerNavbarBgc: $white;
+$headerNavbarHover: $red;
+$headerNavbarHoverColor: $white;
+$headerSearchBgc: $bonJour;
+$headerLoginBgc: $red;
+$headerLoginColor: $white;
+
+$searchTitleColor: $white;
+$searchSelectBgc: $whiteOp10;
+$searchSelectBdc: $whiteOp20;
+$searchSelectColor: $white;
+
+$filterBdc: $cascade;
+$filterRulesColor: $cascade;
+$filterRulesColorActive: $red;
+$filterLocationBdc: $tiara;
+$filterLocationColor: $red;
+$filterActionColor: $tiara;
+$filterActionApartmen: $green;
+$filterActionGirl: $cascade;
+$filterActionEducation: $cascade;
+$filterActionMusic: $orange;
+$filterActionTravel: $violet;
+
+$ellipsBoxBgc: $whiteOp10;
+$ellipsBoxBdc: $whiteOp20;
+$ellipsBoxColor: $white;
+$ellipsBoxOutline: $blue;
+
+$redEllipsBgc: $red;
+$redEllipsColor: $white;
+
+// Time
+$timeVeryFast: .2s;
+$timeFast: .3s;
+$timeNormal: .4s;
+$timeSlow: .7s;
+$timeVerySlow: 1s;

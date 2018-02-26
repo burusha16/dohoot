@@ -1,0 +1,79 @@
+@import 'variables';
+@mixin placeholder-color($color) {
+  @each $browser in (webkit-input, moz, ms-input) {
+    &::-#{$browser}-placeholder {
+      color: $color;
+    }
+    &:focus::-#{$browser}-placeholder {
+      color: transparent;
+    }
+
+    &:-#{$browser}-placeholder {
+      color: $color;
+    }
+    &:focus:-#{$browser}-placeholder {
+      color: transparent;
+    }
+  }
+}
+
+.search {
+  width: 100%;
+  height: 375px;
+  padding-top: 55px;
+  background-image: url('/assets/img/search__bg.png');
+  background-position: center;
+  box-sizing: border-box;
+
+  &__title {
+    margin-bottom: 30px;
+    font-size: 30px;
+    line-height: 34px;
+    color: $searchTitleColor;
+  }
+
+  &__select {
+    margin-right: 14px;
+    margin-left: 14px;
+    align-items: center;
+    margin-bottom: 22px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+    &:after {
+      content: '';
+      display: flex;
+      width: 14px;
+      height: 9px;
+      margin-left: -50px;
+      background-image: url('/assets/img/search__select_arrow.png');
+    }
+
+    select {
+      width: 210px;
+      height: 100%;
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      outline-width: 1px;
+      font-size: 18px;
+      line-height: 24px;
+      font-family: gotham-book;
+      color: $searchSelectColor;
+    }
+  }
+
+  &__input {
+    width: 470px;
+    height: 57px;
+    margin-bottom: 30px;
+    font-family: gotham-book;
+    @include placeholder-color($white);
+  }
+}
+
+@media (min-width: 1441px) {
+.search {
+  background-image: url('/assets/img/search__bg1920.png');
+  }
+}

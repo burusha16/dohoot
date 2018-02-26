@@ -1,0 +1,78 @@
+@import 'variables';
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 74px;
+  background-image: linear-gradient(to right, transparent 0%, transparent 50%, $headerBgc 50%, $headerBgc 100%);
+  font-family: gotham;
+
+  &__logo {
+    margin-left: -15px;
+    flex-basis: 154px;
+    a {
+      display: block;
+      width: 154px;
+      height: 74px;
+      background-image: url('/assets/img/header__logo-icon.png');
+      background-position-y: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    background-color: $headerNavbarBgc;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    &-item a {
+      padding-right: 11px;
+      padding-left: 11px;
+      color: $headerNavbarColor;
+      transition-duration: $timeNormal;
+
+      &:hover {
+        background-color: $headerNavbarHover;
+        color: $headerNavbarHoverColor;
+      }
+    }
+  }
+
+  &__search {
+    height: 100%;
+    width: 74px;
+    background-color: $headerSearchBgc;
+    background-image: url(/assets/img/header__search-icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__login {
+    width: 162px;
+    height: 100%;
+    margin-right: -15px;
+    background-color: $headerLoginBgc;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: $headerLoginColor;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:before {
+        content: '';
+        display: flex;
+        width: 15px;
+        height: 17px;
+        margin-right: 15px;
+        background-image: url('/assets/img/header__login-icon.png');
+      }
+    }
+  }
+}

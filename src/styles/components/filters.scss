@@ -1,0 +1,111 @@
+.filters {
+  height: 60px;
+  box-sizing: border-box;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: $filterBdc;
+  font-family: gotham;
+
+  &__rules {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    margin-left: -15px;
+
+    a {
+      margin-right: 12px;
+      margin-left: 12px;
+      text-transform: uppercase;
+      color: $filterRulesColor;
+      font-size: 12px;
+
+      &:hover {
+        color: $filterRulesColorActive;
+        text-decoration: underline;
+      }
+
+      &.active {
+        color: $filterRulesColorActive;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__location {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+
+    &-select {
+      width: 117px;
+      height: 36px;
+      margin-right: 5px;
+      padding-left: 15px;
+      align-items: center;
+      border-color: $filterLocationBdc;
+      overflow-x: hidden;
+
+      &:after {
+        content: '';
+        display: flex;
+        width: 12px;
+        height: 8px;
+        margin-left: -55px;
+        background-image: url('/assets/img/filters__select_arrow.png');
+      }
+
+      select {
+        width: 130px;
+        height: 100%;
+        color: $filterLocationColor;
+        appearance: none;
+        background-color: transparent;
+        text-transform: uppercase;
+        border: none;
+        outline-width: 1px;
+        font-family: gotham;
+        font-size: 12px;
+      }
+    }
+
+    &-map {
+      width: 127px;
+      height: 36px;
+      margin-left: 5px;
+      align-items: center;
+      font-size: 12px;
+      border-color: $filterLocationBdc;
+      color: $filterLocationBdc;
+      text-transform: uppercase;
+
+      &:after {
+        content: '';
+        display: flex;
+        width: 8px;
+        height: 12px;
+        margin-left: 10px;
+        background-image: url('/assets/img/filters__location_map.png');
+      }
+    }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-right: 5px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: $filterActionColor;
+    }
+  }
+}

@@ -30,7 +30,8 @@
     "React": false,
     "ReactDOM": false,
     "PropTypes": false,
-    "EventEmitter": false
+    "EventEmitter": false,
+    "alert": false
   },
 
   "rules": {

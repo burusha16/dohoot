@@ -59,8 +59,15 @@ class Header extends React.Component {
               <ul className = "header__navbar">
                 {navigationTemplate}
               </ul>
-              <button className = "header__search" onClick = {this.onSearchCLick}/>
+              <button className = "header__search" onClick = {this.onSearchCLick}>
+                <svg className = "icon-search">
+                  <use xlinkHref = "#icon-search" />
+                </svg>
+              </button>
               <button className = "header__login" onClick = {this.onLoginClick}>
+                <svg className = "icon-login">
+                  <use xlinkHref = "#icon-login" />
+                </svg>
                 <span>Login</span>
               </button>
             </div>

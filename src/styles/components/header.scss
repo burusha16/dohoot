@@ -1,5 +1,3 @@
-@import 'variables';
-
 .header {
   display: flex;
   width: 100%;
@@ -46,12 +44,12 @@
     height: 100%;
     width: 74px;
     background-color: $headerSearchBgc;
-    background-image: url(/assets/img/header__search-icon.png);
-    background-position: center;
-    background-repeat: no-repeat;
   }
 
   &__login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 162px;
     height: 100%;
     margin-right: -15px;
@@ -64,15 +62,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
-      &:before {
-        content: '';
-        display: flex;
-        width: 15px;
-        height: 17px;
-        margin-right: 15px;
-        background-image: url('/assets/img/header__login-icon.png');
-      }
     }
   }
 }

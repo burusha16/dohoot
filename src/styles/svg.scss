@@ -1,0 +1,35 @@
+.icon {
+  &-login {
+    width: 15px;
+    height: 19px;
+    fill: $white;
+    margin-right: 15px;
+  }
+
+  &-search {
+    width: 23px;
+    height: 23px;
+    fill: $white;
+  }
+
+  &-arrowdown {
+    width: 19px;
+    height: 19px;
+    margin-left: -50px;
+  }
+
+  &-map {
+    width: 12px;
+    height: 12px;
+    fill: $cascade;
+    margin-left: 10px;
+  }
+
+  &-apartment,
+  &-music,
+  &-education,
+  &-travel,
+  &-shoping {
+    fill: $white;
+  }
+}

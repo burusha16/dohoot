@@ -6,7 +6,7 @@
   border-bottom-color: $filterBdc;
   font-family: gotham;
 
-  &__rules {
+  &__categories {
     display: flex;
     height: 60px;
     align-items: center;
@@ -44,6 +44,13 @@
     align-items: center;
     justify-content: center;
 
+    .icon-arrowdown {
+      width: 14px;
+      height: 14px;
+      fill: $filterLocationBdc;
+      margin-left: -50px;
+    }
+
     &-select {
       width: 117px;
       height: 36px;
@@ -52,15 +59,6 @@
       align-items: center;
       border-color: $filterLocationBdc;
       overflow-x: hidden;
-
-      &:after {
-        content: '';
-        display: flex;
-        width: 12px;
-        height: 8px;
-        margin-left: -55px;
-        background-image: url('/assets/img/filters__select_arrow.png');
-      }
 
       select {
         width: 130px;
@@ -85,15 +83,6 @@
       border-color: $filterLocationBdc;
       color: $filterLocationBdc;
       text-transform: uppercase;
-
-      &:after {
-        content: '';
-        display: flex;
-        width: 8px;
-        height: 12px;
-        margin-left: 10px;
-        background-image: url('/assets/img/filters__location_map.png');
-      }
     }
   }
 

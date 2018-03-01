@@ -8,7 +8,7 @@ class Search extends React.Component {
     }
 
     e.preventDefault();
-    window.ee.emit('Search.add', newRule);
+    window.ee.emit('FilterRule.add', newRule);
   }
 
   render() {
@@ -34,9 +34,15 @@ class Search extends React.Component {
             <div className = "col-sm-12 __align-center">
               <div className = "ellips-box search__select">
                 <select ref={c => {this._inputCity = c}}>{getOptionList(cities)}</select>
+                <svg className = "icon-arrowdown">
+                  <use xlinkHref = "#icon-arrowdown" />
+                </svg>
               </div>
               <div className = "ellips-box search__select">
                 <select ref={c => {this._inputAction = c}}>{getOptionList(action)}</select>
+                <svg className = "icon-arrowdown">
+                  <use xlinkHref = "#icon-arrowdown" />
+                </svg>
               </div>
             </div>
             <div className = "col-sm-12 __align-center">

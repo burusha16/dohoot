@@ -4,9 +4,10 @@ class App extends React.Component {
     super();
     this.state = {
       searchFilter: {
+        categories: 'recommended',
         city: '',
         action: '',
-        keyword: ''
+        keyword: '',
       }
     };
   }
@@ -14,32 +15,39 @@ class App extends React.Component {
   componentDidMount() {
     let self = this;
 
-    window.ee.addListener('Search.add', function(rule) {
-      let newRule = self.state.searchFilter;
-      
-      for (let key in rule) {
-        if (rule[key]) {
-          newRule[key] = rule[key];
-        }
-      }
+    window.ee.addListener('FilterRule.add', function(newRule) {
       self.setState({searchFilter: newRule});
+    });
+
+    window.ee.addListener('newRaiting.add', function(res) {
+      console.log(res);
     });
   }
 
   componentWillUnmount() {
-    window.ee.removeListener('Search.add');
+    window.ee.removeListener('FilterRule.add');
   }
 
   render() {
-    let data = {};
-    data.cities = ['Dubai', 'Moscow', 'Kazan', 'London', 'New York'];
-    data.action = ['Education', 'Travel', 'Music', 'Apartments', 'Other'];
+    let config = {
+      eventsOnPage: 8
+    };
+    let filterValues = {
+      cities: ['Dubai', 'Moscow', 'Kazan', 'London', 'New York'],
+      action: ['Education', 'Travel', 'Music', 'Apartment', 'Shoping']
+    };
+    let data = {
+      eventsOnPage: config.eventsOnPage,
+      content: db,
+      filterRule: this.state.searchFilter
+    };
 
     return (
       <div className="app">
         <Header />
-        <Search data = {data}/>
-        <Filter data = {data}/>
+        <Search data = {filterValues}/>
+        <Filter data = {filterValues}/>
+        <Content data = {data} />
       </div>
     );
   }

@@ -33,6 +33,7 @@
   }
 
   &__select {
+    position: relative;
     margin-right: 14px;
     margin-left: 14px;
     align-items: center;
@@ -40,13 +41,11 @@
     overflow-x: hidden;
     box-sizing: border-box;
 
-    &:after {
-      content: '';
-      display: flex;
-      width: 14px;
-      height: 9px;
+    .icon-arrowdown {
+      width: 19px;
+      height: 19px;
+      fill: $searchTitleColor;
       margin-left: -50px;
-      background-image: url('/assets/img/search__select_arrow.png');
     }
 
     select {

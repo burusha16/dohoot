@@ -1,60 +1,109 @@
 class Filter extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      activeFilter: 'recommended'
+    };
+  }
 
   onShowMapClick() {
     alert('Sorry, this option is not aviable.');
   }
 
-  onFilterRuleChange(event) {
+  onFilterRuleChange(data) {
     let newRule = {};
-
-    if (event.target.name) {
-      newRule.action = event.target.name;
+    if (data.action) {
+      newRule.action = data.action
+      window.location.hash = '#filters';
+      this.setState({activeFilter: data.action});
+    } else if (data.target.value) {
+      newRule.city = data.target.value;
+      window.location.hash = '#cities';
+      this.setState({activeFilter: data.action});
     }
     else {
-      newRule.city = event.target.value;
+      newRule.categories = data.target.innerHTML.toLowerCase();
+      this.setState({activeFilter: data.target.innerHTML.toLowerCase()});
     }
 
-    window.ee.emit('Search.add', newRule);
+    window.ee.emit('FilterRule.add', newRule);
+  }
+
+  templateFilterIcons(self, data) {
+    return data.map((item, index) => {
+      return(
+        <button key = {'action__filter__' + index}
+        className = {'button-round __button-round__' + item.action.toLowerCase()} 
+        onClick = {() => self.onFilterRuleChange({action: item.action})}>
+          <svg className = {item.icon} >
+            <use xlinkHref = {'#'+item.icon} />
+          </svg>
+        </button>
+      )
+    });
+  }
+
+  templateOptionList(array) {
+    return array.map((item, index) => {
+      return (
+        <option key = {index}>{item}</option>
+      );
+    });
   }
 
   render() {
     let cities = this.props.data.cities;
 
-    function getOptionList(array) {
-      let list = array.map((item, index) => {
-        return (
-          <option key = {index}>{item}</option>
-        );
-      });
-      return list;
-    }
-
     return (
       <div className = "filters">
         <div className = "container">
           <div className = "row">
-            <div className = "col-sm-12">
-              <div className = "filters__rules">
-                <a href = "#" className = "active">Recommended</a>
-                <a href = "#">Latest</a>
-                <a href = "#">Highlights</a>
+            <div className = "col-sm-12">       
+              <div className = "filters__categories" ref = "categories">
+                <a href = "#recommended" ref="recommended"
+                className = {(this.state.activeFilter === 'recommended') ? 'active' : ''} 
+                onClick = {c => {this.onFilterRuleChange(c)}}>
+                  Recommended
+                </a>
+
+                <a href = "#latest" ref="latest" 
+                className = {(this.state.activeFilter === 'latest') ? 'active' : ''} 
+                onClick = {c => {this.onFilterRuleChange(c)}}>
+                  Latest
+                </a>
+
+                <a href = "#highlights" ref="highlights"
+                className = {(this.state.activeFilter === 'highlights') ? 'active' : ''}
+                onClick = {c => {this.onFilterRuleChange(c)}}>
+                  Highlights
+                </a>
               </div>
 
               <div className = "filters__location">
                 <div className = "ellips-box filters__location-select">
-                  <select onChange = {this.onFilterRuleChange}>{getOptionList(cities)}</select>
+                  <select onChange = {c => {this.onFilterRuleChange(c)}}>{this.templateOptionList(cities)}</select>
+                  <svg className = "icon-arrowdown">
+                    <use xlinkHref = "#icon-arrowdown" />
+                  </svg>
                 </div>
                 
-                <button className = "ellips-box filters__location-map" onClick = {this.onShowMapClick}>Show Map</button>
+                <button className = "ellips-box filters__location-map" onClick = {this.onShowMapClick}>
+                  Show Map
+                  <svg className = "icon-map">
+                    <use xlinkHref = "#icon-map" />
+                  </svg>
+                </button>
               </div>
 
               <div className = "filters__action">
                 <p>Filter:</p>
-                <button className = "button-round __button-round__apartrments" name = "Apartmens" onClick = {this.onFilterRuleChange}></button>
-                <button className = "button-round __button-round__girl" name = "Girl" onClick = {this.onFilterRuleChange}></button>
-                <button className = "button-round __button-round__education" name = "Education" onClick = {this.onFilterRuleChange}></button>
-                <button className = "button-round __button-round__music" name = "Music" onClick = {this.onFilterRuleChange}></button>
-                <button className = "button-round __button-round__travel" name = "Travel" onClick = {this.onFilterRuleChange}></button>
+                {this.templateFilterIcons(this, [
+                  {action: 'Apartment', icon: 'icon-apartment'},
+                  {action: 'Shoping', icon: 'icon-shoping'},
+                  {action: 'Education', icon: 'icon-education'},
+                  {action: 'Music', icon: 'icon-music'},
+                  {action: 'Travel', icon: 'icon-travel'}
+                ])}
               </div>
             </div>
           </div>

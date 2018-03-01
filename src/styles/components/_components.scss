@@ -25,40 +25,90 @@
 }
 
 .button-round {
+  display: flex;
   width: 40px;
   height: 40px;
+  align-items: center;
+  justify-content: center;
   margin-right: 5px;
   margin-left: 5px;
   border-radius: 40px;
   background-color: $cascade;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+
+.button__show-more {
+  display: flex;
+  align-items: center;
+  width: 140px;
+  height: 35px;
+  margin-top: 23px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-left: auto;
+  padding-left: 15px;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 3px;
+  border-color: $contentShowMoreBdc;
+  font-size: 12px;
+  text-transform: uppercase;
+
+  .icon-search {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    margin-top: -2px;
+  }
+}
+
+.button__star {
+  width: 16px;
+  height: 16px;
+  background-image: url('/assets/img/content__showmore-star.png');
+
+  &:hover {
+    background-image: url('/assets/img/content__showmore-star-filled.png');
+  }
 }
 
 .__button-round {
-  &__apartrments {
+  &__apartment {
     background-color: $filterActionApartmen;
-    background-image: url('/assets/img/filter__apartment-icon.png');
+    .icon-apartment {
+      width: 24px;
+      height: 22px;
+    }
   }
 
-  &__girl {
-    background-color: $filterActionGirl;
-    background-image: url('/assets/img/filter__girl-icon.png');
+  &__shoping {
+    background-color: $filterActionShoping;
+    .icon-shoping {
+      width: 24px;
+      height: 22px;
+    }
   }
 
   &__music {
     background-color: $filterActionMusic;
-    background-image: url('/assets/img/filter__music-icon.png');
-    background-position-x: 10px;
+    .icon-music {
+      width: 24px;
+      height: 22px;
+    }
   }
 
   &__education {
     background-color: $filterActionEducation;
-    background-image: url('/assets/img/filter__education-icon.png');
+    .icon-education {
+      width: 24px;
+      height: 22px;
+    }
   }
 
   &__travel {
     background-color: $filterActionTravel;
-    background-image: url('/assets/img/filter__travel-icon.png');
+    .icon-travel {
+      width: 24px;
+      height: 22px;
+    }
   }
 }

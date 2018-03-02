@@ -2,9 +2,9 @@
 $blue: #4d90fe;
 $bonJour: #e2dee0;
 $cascade: #96a6a7;
+$edward: #9dacad;
 $green: #1baf5d;
 $gray: #f3f1f2;
-$gray2: #e2dee0;
 $grayShuttle: #566375;
 $gray3: #cccdd3;
 $orange: #f19e1f;
@@ -16,9 +16,16 @@ $whiteOp10: rgba(255, 255, 255, .1);
 $whiteOp20: rgba(255, 255, 255, .2);
 
 // Elements
+$abilitiesTopLine: $bonJour;
+$abilitiesTitle: $grayShuttle;
+$abilitiesSubtitle: $cascade;
+$abilitiesIcon: $edward;
+$abilitiesIconActive: $green;
+$abilitiesActionText: $grayShuttle;
+
 $contentBgc: $gray;
 $contentItemBgc: $white;
-$contentItemBdc: $gray2;
+$contentItemBdc: $bonJour;
 $contentPriceBgc: $green;
 $contentPriceColor: $white;
 $contentCategoryBdc: $white;

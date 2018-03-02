@@ -1,3 +1,16 @@
+@mixin filledAndIcon ($BGcolor, $iconName, $iconWidth, $iconHeight, $iconColor) {
+  .__button-round {
+    &__#{$iconName} {
+      background-color: $BGcolor;
+      .icon-#{$iconName} {
+        width: $iconWidth;
+        height: $iconHeight;
+        fill: $iconColor;
+      }
+    }
+  }
+}
+
 .ellips-box {
   display: flex;
   width: 220px;
@@ -71,44 +84,42 @@
   }
 }
 
-.__button-round {
-  &__apartment {
-    background-color: $filterActionApartmen;
-    .icon-apartment {
-      width: 24px;
-      height: 22px;
-    }
+.button__round-icon {
+  width: 100px;
+  height: 100px;
+  margin-right: 4px;
+  margin-left: 4px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $abilitiesIcon;
+  border-radius: 100px;
+  transition-duration: $timeNormal;
+
+  .icon-apartment,
+  .icon-shoping,
+  .icon-music,
+  .icon-education,
+  .icon-travel {
+    width: 50px;
+    height: 50px;
+    fill: $abilitiesIcon;
+    transition-duration: $timeNormal;
   }
 
-  &__shoping {
-    background-color: $filterActionShoping;
-    .icon-shoping {
-      width: 24px;
-      height: 22px;
-    }
-  }
-
-  &__music {
-    background-color: $filterActionMusic;
-    .icon-music {
-      width: 24px;
-      height: 22px;
-    }
-  }
-
-  &__education {
-    background-color: $filterActionEducation;
-    .icon-education {
-      width: 24px;
-      height: 22px;
-    }
-  }
-
-  &__travel {
-    background-color: $filterActionTravel;
+  &.active {
+    border-color: $abilitiesIconActive;
+    .icon-apartment,
+    .icon-shoping,
+    .icon-music,
+    .icon-education,
     .icon-travel {
-      width: 24px;
-      height: 22px;
+      fill: $abilitiesIconActive;
     }
   }
 }
+
+@include filledAndIcon($filterActionApartmen, apartment, 24px, 22px, $white);
+@include filledAndIcon($filterActionEducation, education, 24px, 22px, $white);
+@include filledAndIcon($filterActionMusic, music, 24px, 22px, $white);
+@include filledAndIcon($filterActionShoping, shoping, 24px, 22px, $white);
+@include filledAndIcon($filterActionTravel, travel, 24px, 22px, $white);

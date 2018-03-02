@@ -47,7 +47,10 @@ class App extends React.Component {
         <Header />
         <Search data = {filterValues}/>
         <Filter data = {filterValues}/>
-        <Content data = {data} />
+        <div className = "wrapper__main">
+          <Content data = {data} />
+          <Abilities />
+        </div>
       </div>
     );
   }

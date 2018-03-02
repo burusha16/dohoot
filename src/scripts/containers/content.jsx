@@ -72,19 +72,20 @@ class Content extends React.Component {
     let maxEventsOnPage = this.props.data.eventsOnPage * this.state.pageNumber;
 
     return (
-      <div className = "content">
-        <div className = "container">
-          <div className = "row">
-            {this.templateContentOutput(filterRule, content, maxEventsOnPage)}
-          </div>
+      <div className = "container content">
+        <div className = "row">
+          {this.templateContentOutput(filterRule, content, maxEventsOnPage)}
+        </div>
 
-          <div className = "row"> 
-            <div className = "col-sm-12">
-              <button onClick = {c => {this.onMoreItemsClick(c)}}
-               className = {'content__moreitems' + ((maxEventsOnPage < this.state.elementsAtAll) ? '' : ' hidden')}>
-                <span>Load more</span>
-              </button>
-            </div>
+        <div className = "row"> 
+          <div className = "col-sm-12">
+            <button onClick = {c => {this.onMoreItemsClick(c)}}
+             className = {'content__moreitems' + ((maxEventsOnPage < this.state.elementsAtAll) ? '' : ' hidden')}>
+              <span>Load more</span>
+              <svg className = 'icon-arrowright' >
+                <use xlinkHref = '#icon-arrowright'/>
+              </svg>
+            </button>
           </div>
         </div>
       </div>

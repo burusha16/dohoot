@@ -17,6 +17,7 @@
       .icon-#{$name} {
         width: 27px;
         height: 27px;
+        fill: $white;
       }
     }
     .content__location {
@@ -30,7 +31,6 @@
 
 .content {
   padding-top: 50px;
-  background-color: $contentBgc;
   font-family: gotham;
 
   &__item {
@@ -188,13 +188,11 @@
       border-bottom-color: $contentMoreItemsBdc;
     }
 
-    &:after {
-      content: '';
-      display: flex;
-      margin-left: 5px;
+    .icon-arrowright {
       width: 14px;
-      height: 6px;
-      background-image: url('/assets/img/content__moreitems-arrow.png');
+      height: 14px;
+      margin-left: 5px;
+      fill: $contentMoreItemsColor;
     }
   }
 }

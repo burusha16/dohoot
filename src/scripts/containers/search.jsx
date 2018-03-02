@@ -32,13 +32,13 @@ class Search extends React.Component {
               <p className = "search__title">What are you looking for?</p>
             </div>
             <div className = "col-sm-12 __align-center">
-              <div className = "ellips-box search__select">
+              <div className = "ellips-box __search-select">
                 <select ref={c => {this._inputCity = c}}>{getOptionList(cities)}</select>
                 <svg className = "icon-arrowdown">
                   <use xlinkHref = "#icon-arrowdown" />
                 </svg>
               </div>
-              <div className = "ellips-box search__select">
+              <div className = "ellips-box __search-select">
                 <select ref={c => {this._inputAction = c}}>{getOptionList(action)}</select>
                 <svg className = "icon-arrowdown">
                   <use xlinkHref = "#icon-arrowdown" />
@@ -46,7 +46,7 @@ class Search extends React.Component {
               </div>
             </div>
             <div className = "col-sm-12 __align-center">
-              <input className = "ellips-box search__input" placeholder = "Keyword, name, date, ..." ref={c => {this._inputKeyword = c}}/>
+              <input className = "ellips-box __search-input" placeholder = "Keyword, name, date, ..." ref={c => {this._inputKeyword = c}}/>
             </div>
             <div className = "col-sm-12 __align-center">
               <button type="submit" className = "button__red-ellipse" onClick = {e => {this.onSubmitClick(e)}}>Search</button>

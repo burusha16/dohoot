@@ -11,6 +11,24 @@
   }
 }
 
+@mixin placeholder-color($color) {
+  @each $browser in (webkit-input, moz, ms-input) {
+    &::-#{$browser}-placeholder {
+      color: $color;
+    }
+    &:focus::-#{$browser}-placeholder {
+      color: transparent;
+    }
+
+    &:-#{$browser}-placeholder {
+      color: $color;
+    }
+    &:focus:-#{$browser}-placeholder {
+      color: transparent;
+    }
+  }
+}
+
 .ellips-box {
   display: flex;
   width: 220px;
@@ -19,12 +37,58 @@
   border-style: solid;
   border-width: 1px;
   border-color: $ellipsBoxBdc;
-  border-radius: 26px;
-  background-color: $ellipsBoxBgc;
-  font-size: 18px;
-  color: $ellipsBoxColor;
+  border-radius: 100px;
   box-sizing: border-box;
   outline-width: 1px;
+  background-color: $ellipsBoxBgc;
+  font-size: 18px;
+  font-family: gotham-book;
+  color: $ellipsBoxColor;
+
+  &.__footer-input {
+    position: relative;
+    width: 495px;
+    height: 62px;
+    margin-left: -53px;
+    padding-left: 70px;
+    @include placeholder-color($footerTitle);
+  }
+
+  &.__search-input {
+    width: 470px;
+    height: 57px;
+    margin-bottom: 30px;
+    @include placeholder-color($white);
+  }
+
+  &.__search-select {
+    position: relative;
+    align-items: center;
+    margin-right: 14px;
+    margin-left: 14px;
+    margin-bottom: 22px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+    .icon-arrowdown {
+      width: 19px;
+      height: 19px;
+      fill: $searchTitleColor;
+      margin-left: -50px;
+    }
+
+    select {
+      width: 210px;
+      height: 100%;
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      outline-width: 1px;
+      font-size: 18px;
+      line-height: 24px;
+      color: $searchSelectColor;
+    }
+  }
 }
 
 .button__red-ellipse {
@@ -35,6 +99,14 @@
   font-size: 18px;
   text-transform: uppercase;
   color: $redEllipsColor;
+
+  &.__footer {
+    z-index: 80;
+    width: 120px;
+    height: 52px;
+    margin-left: -124px;
+    font-size: 14px;
+  }
 }
 
 .button-round {
@@ -71,16 +143,6 @@
     height: 12px;
     margin-right: 8px;
     margin-top: -2px;
-  }
-}
-
-.button__star {
-  width: 16px;
-  height: 16px;
-  background-image: url('/assets/img/content__showmore-star.png');
-
-  &:hover {
-    background-image: url('/assets/img/content__showmore-star-filled.png');
   }
 }
 

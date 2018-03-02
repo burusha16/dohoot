@@ -1,0 +1,93 @@
+.footer {
+  width: 100%;
+  height: 500px;
+  padding-top: 60px;
+  box-sizing: border-box;
+  background-image: url('/assets/img/footer__bg.png');
+
+  &__title {
+    display: flex;
+    margin-bottom: 40px;
+    font-size: 24px;
+    line-height: 28px;
+    color: $footerTitle;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-bottom: 56px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-bottom-color: $footerSplitterLine;
+
+    .icon-mail {
+      width: 18px;
+      height: 18px;
+      fill: $footerTitle;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+
+    &-title {
+      margin-bottom: 25px;
+      font-size: 16px;
+      line-height: 18px;
+      color: $footerListTitle;
+    }
+
+    &-item {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-family: gotham-book;
+      line-height: 16px;
+      color: $footerListItem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    
+    &-copyright {
+      font-size: 14px;
+      font-family: gotham-book;
+      color: $footerListTitle;
+    }
+
+    &-social {
+      margin-bottom: 73px;
+      a {
+        margin-right: 12px;
+        margin-left: 12px;
+
+        &:first-child {
+          margin-left: -7px;
+        }
+      }
+
+      .icon-youtube,
+      .icon-gplus,
+      .icon-twitter,
+      .icon-facebook {
+        width: 30px;
+        height: 30px;
+        fill: $footerListIcons;
+      }
+    }
+  }
+}
+
+@media (min-width: 1441px) {
+  .footer {
+    background-image: url('/assets/img/footer__bg1920.png');
+  }
+}

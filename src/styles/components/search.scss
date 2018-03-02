@@ -1,22 +1,3 @@
-@import 'variables';
-@mixin placeholder-color($color) {
-  @each $browser in (webkit-input, moz, ms-input) {
-    &::-#{$browser}-placeholder {
-      color: $color;
-    }
-    &:focus::-#{$browser}-placeholder {
-      color: transparent;
-    }
-
-    &:-#{$browser}-placeholder {
-      color: $color;
-    }
-    &:focus:-#{$browser}-placeholder {
-      color: transparent;
-    }
-  }
-}
-
 .search {
   width: 100%;
   height: 375px;
@@ -30,44 +11,6 @@
     font-size: 30px;
     line-height: 34px;
     color: $searchTitleColor;
-  }
-
-  &__select {
-    position: relative;
-    margin-right: 14px;
-    margin-left: 14px;
-    align-items: center;
-    margin-bottom: 22px;
-    overflow-x: hidden;
-    box-sizing: border-box;
-
-    .icon-arrowdown {
-      width: 19px;
-      height: 19px;
-      fill: $searchTitleColor;
-      margin-left: -50px;
-    }
-
-    select {
-      width: 210px;
-      height: 100%;
-      appearance: none;
-      background-color: transparent;
-      border: none;
-      outline-width: 1px;
-      font-size: 18px;
-      line-height: 24px;
-      font-family: gotham-book;
-      color: $searchSelectColor;
-    }
-  }
-
-  &__input {
-    width: 470px;
-    height: 57px;
-    margin-bottom: 30px;
-    font-family: gotham-book;
-    @include placeholder-color($white);
   }
 }
 

@@ -26,6 +26,7 @@ class App extends React.Component {
 
   componentWillUnmount() {
     window.ee.removeListener('FilterRule.add');
+    window.ee.removeListener('newRaiting.add');
   }
 
   render() {
@@ -51,6 +52,7 @@ class App extends React.Component {
           <Content data = {data} />
           <Abilities />
         </div>
+        <Footer />
       </div>
     );
   }

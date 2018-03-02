@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import ReactTransitionGroup from 'react-addons-transition-group';
 
 let EventEmitter = require('wolfy87-eventemitter');
 

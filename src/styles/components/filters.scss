@@ -5,11 +5,12 @@
   border-bottom-width: 1px;
   border-bottom-color: $filterBdc;
   font-family: gotham;
+  background-color: $filterBgc;
 
   &__categories {
     display: flex;
-    height: 60px;
     align-items: center;
+    height: 60px;
     margin-left: -15px;
 
     a {
@@ -89,12 +90,28 @@
   &__action {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin-left: -15px;
+    margin-right: -15px;
 
     p {
       margin-right: 5px;
       text-transform: uppercase;
       font-size: 12px;
       color: $filterActionColor;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+ .filters {
+    &__categories {
+      margin-left: 10px;
+    }
+
+    &__action {
+      margin-right: 10px;
     }
   }
 }

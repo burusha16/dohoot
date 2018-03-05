@@ -26,7 +26,16 @@ class Content extends React.Component {
     alert('Sorry, this option is not aviable.')
   }
 
-  templateContentOutput(rule, array, maxItemsNumber) {
+  countEventsOnPage() {
+    let lines = this.props.data.eventLinesOnPage;
+    let elementsInRow = (window.innerWidth < 1200) ? 3 : 4;
+
+    return (elementsInRow * lines * this.state.pageNumber);
+  }
+
+  templateContentOutput(rule, array) {
+    let maxItemsNumber = this.countEventsOnPage();
+
     for (let key in rule) {
       if (rule[key]) {
         array = array.filter( (item) => {
@@ -69,12 +78,12 @@ class Content extends React.Component {
   render() {
     let filterRule = this.props.data.filterRule;
     let content = this.props.data.content;
-    let maxEventsOnPage = this.props.data.eventsOnPage * this.state.pageNumber;
+    let maxEventsOnPage = this.countEventsOnPage();
 
     return (
       <div className = "container content">
         <div className = "row">
-          {this.templateContentOutput(filterRule, content, maxEventsOnPage)}
+          {this.templateContentOutput(filterRule, content)}
         </div>
 
         <div className = "row"> 

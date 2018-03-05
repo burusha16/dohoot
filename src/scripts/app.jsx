@@ -31,14 +31,14 @@ class App extends React.Component {
 
   render() {
     let config = {
-      eventsOnPage: 8
+      eventLinesOnPage: 2
     };
     let filterValues = {
       cities: ['Dubai', 'Moscow', 'Kazan', 'London', 'New York'],
       action: ['Education', 'Travel', 'Music', 'Apartment', 'Shoping']
     };
     let data = {
-      eventsOnPage: config.eventsOnPage,
+      eventLinesOnPage: config.eventLinesOnPage,
       content: db,
       filterRule: this.state.searchFilter
     };
@@ -48,10 +48,8 @@ class App extends React.Component {
         <Header />
         <Search data = {filterValues}/>
         <Filter data = {filterValues}/>
-        <div className = "wrapper__main">
-          <Content data = {data} />
-          <Abilities />
-        </div>
+        <Content data = {data} />
+        <Abilities />
         <Footer />
       </div>
     );

@@ -40,9 +40,9 @@ class Header extends React.Component {
       }
     ];
 
-    let navigationTemplate = headerNavbar.map((item, index) => {
+    let navigationTemplate = headerNavbar.map((item, i) => {
       return (
-        <li key={'headerNav__' + index} className = "header__navbar-item">
+        <li key={'headerNav__' + i} className = {'header__navbar-item' + ((i === headerNavbar.length - 1) ? ' hidden-md' : '')} >
           <a href={item.URL}>{item.name}</a>
         </li>
       )
@@ -59,7 +59,7 @@ class Header extends React.Component {
               <ul className = "header__navbar">
                 {navigationTemplate}
               </ul>
-              <button className = "header__search" onClick = {this.onSearchCLick}>
+              <button className = "header__search visible-lg" onClick = {this.onSearchCLick}>
                 <svg className = "icon-search">
                   <use xlinkHref = "#icon-search" />
                 </svg>

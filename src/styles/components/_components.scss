@@ -89,6 +89,14 @@
       color: $searchSelectColor;
     }
   }
+
+  &.__valid {
+    border-color: $green;
+  }
+
+  &.__not-valid {
+    border-color: $red;
+  }
 }
 
 .button__red-ellipse {
@@ -119,6 +127,10 @@
   margin-left: 5px;
   border-radius: 40px;
   background-color: $cascade;
+
+  &.__button-round__travel {
+    margin-right: 0;
+  }
 }
 
 .button__show-more {

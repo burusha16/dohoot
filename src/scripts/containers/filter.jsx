@@ -58,7 +58,7 @@ class Filter extends React.Component {
       <div className = "filters">
         <div className = "container">
           <div className = "row">
-            <div className = "col-sm-12">       
+            <div className = "col-sm-12 col-md-6 col-lg-4">
               <div className = "filters__categories" ref = "categories">
                 <a href = "#recommended" ref="recommended"
                 className = {(this.state.activeFilter === 'recommended') ? 'active' : ''} 
@@ -78,7 +78,9 @@ class Filter extends React.Component {
                   Highlights
                 </a>
               </div>
+            </div>
 
+            <div className = "col-sm-12 col-lg-4 hidden-md">
               <div className = "filters__location">
                 <div className = "ellips-box filters__location-select">
                   <select onChange = {c => {this.onFilterRuleChange(c)}}>{this.templateOptionList(cities)}</select>
@@ -94,7 +96,9 @@ class Filter extends React.Component {
                   </svg>
                 </button>
               </div>
+            </div>
 
+            <div className = "col-sm-12 col-md-6 col-lg-4">
               <div className = "filters__action">
                 <p>Filter:</p>
                 {this.templateFilterIcons(this, [

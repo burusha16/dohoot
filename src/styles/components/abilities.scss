@@ -63,8 +63,13 @@
         display: flex;
         justify-content: space-between;
         width: 365px;
-        margin-right: 15px;
-        margin-left: 15px;
+        &:first-child {
+          margin-right: 15px;
+        }
+
+        &:last-child {
+          margin-left: 15px;
+        }
       }
     }
 
@@ -91,6 +96,20 @@
       font-family: gotham-book;
       line-height: 24px;
       color: $abilitiesActionText;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .abilities {
+    &__action {
+      .__spliter {
+        width: 45px;
+      }
+
+      &-list li {
+        width: 340px;
+      }
     }
   }
 }

@@ -2,7 +2,8 @@ class Filter extends React.Component {
   constructor() {
     super();
     this.state = {
-      activeFilter: 'recommended'
+      activeFilter: 'recommended',
+      expanded: false
     };
   }
 
@@ -15,15 +16,15 @@ class Filter extends React.Component {
     if (data.action) {
       newRule.action = data.action
       window.location.hash = '#filters';
-      this.setState({activeFilter: data.action});
+      this.setState({activeFilter: data.action, expanded: this.state.expanded});
     } else if (data.target.value) {
       newRule.city = data.target.value;
       window.location.hash = '#cities';
-      this.setState({activeFilter: data.action});
+      this.setState({activeFilter: data.action, expanded: this.state.expanded});
     }
     else {
       newRule.categories = data.target.innerHTML.toLowerCase();
-      this.setState({activeFilter: data.target.innerHTML.toLowerCase()});
+      this.setState({activeFilter: data.target.innerHTML.toLowerCase(), expanded: this.state.expanded});
     }
 
     window.ee.emit('FilterRule.add', newRule);
@@ -55,7 +56,7 @@ class Filter extends React.Component {
     let cities = this.props.data.cities;
 
     return (
-      <div className = "filters">
+      <div className = {'filters' + (this.state.expanded ? ' expanded' : '')}>
         <div className = "container">
           <div className = "row">
             <div className = "col-sm-12 col-md-6 col-lg-4">
@@ -66,7 +67,7 @@ class Filter extends React.Component {
                   Recommended
                 </a>
 
-                <a href = "#latest" ref="latest" 
+                <a href = "#latest" ref="latest"
                 className = {(this.state.activeFilter === 'latest') ? 'active' : ''} 
                 onClick = {c => {this.onFilterRuleChange(c)}}>
                   Latest
@@ -77,6 +78,10 @@ class Filter extends React.Component {
                 onClick = {c => {this.onFilterRuleChange(c)}}>
                   Highlights
                 </a>
+
+                <svg className = "icon-menu visible-sm" onClick = {() => {this.setState({expanded: !this.state.expanded, activeFilter: this.state.activeFilter})}}>
+                  <use xlinkHref = "#icon-menu" />
+                </svg>
               </div>
             </div>
 

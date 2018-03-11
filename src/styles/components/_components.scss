@@ -197,3 +197,67 @@
 @include filledAndIcon($filterActionMusic, music, 24px, 22px, $white);
 @include filledAndIcon($filterActionShoping, shoping, 24px, 22px, $white);
 @include filledAndIcon($filterActionTravel, travel, 24px, 22px, $white);
+
+@media (max-width: 767px) {
+  .ellips-box {
+    &.__search-input {
+      width: 90%;
+      height: 46px;
+    }
+    &.__search-select {
+      width: 45%;
+      height: 46px;
+      margin: 0;
+      margin-bottom: 20px;
+      padding-left: 15px;
+      
+      .icon-arrowdown {
+        margin-right: 10px;
+      }
+
+      &:first-child {
+        margin-right: 10px;
+      }
+      &:last-child {
+        margin-left: 10px;
+      }
+    }
+    &.__footer-input {
+      position: relative;
+      width: 100%;
+      height: 42px;
+      margin-left: -25px;
+      padding-left: 50px;
+      font-size: 14px;
+    }
+  }
+
+  .button__red-ellipse {
+    height: 40px;
+
+    &.__footer {
+      z-index: 80;
+      width: 90px;
+      height: 32px;
+      margin-left: -94px;
+      font-size: 12px;
+    }
+  }
+
+  .button__round-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14vw;
+    height: 14vw;
+
+    .icon-apartment,
+    .icon-shoping,
+    .icon-music,
+    .icon-education,
+    .icon-travel {
+      width: 7vw;
+      height: 7vw;
+    }
+  }
+}

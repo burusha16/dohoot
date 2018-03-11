@@ -115,3 +115,43 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .filters {
+    overflow-y: hidden;
+    transition-duration: $timeNormal;
+    &__categories {
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+      margin-left: -5px;
+      margin-right: -5px;
+    
+      a {
+        margin: 0;
+      }
+
+      .icon-menu {
+        width: 30px;
+        height: 30px;
+        fill: $red;
+      }
+    }
+    
+    &__location {
+      margin-bottom: 15px;
+    }
+
+    &__action {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    &.expanded {
+      height: 170px;
+    }
+  }
+}

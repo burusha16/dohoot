@@ -91,3 +91,82 @@
     background-image: url('/assets/img/footer__bg1920.png');
   }
 }
+
+@media (max-width: 767px) {
+  .footer {
+    padding-top: 40px;
+    height: auto;
+    background-repeat: repeat-y;
+
+    &__title {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+  
+    &__input {
+      width: calc(100% + 30px);
+      margin-left: -15px;
+      margin-right: -15px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 30px;
+
+      .icon-mail {
+        margin-right: -10px;
+        margin-left: 10px;
+      }
+    }
+
+    &__list {
+      flex-grow: 1;
+      align-items: center;
+      padding-top: 20px;
+
+      &-title {
+        margin-bottom: 15px;
+      }
+
+      &-item {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 14px;
+        font-family: gotham-book;
+        line-height: 16px;
+        color: $footerListItem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      
+      &-copyright {
+        padding-bottom: 10px;
+        font-size: 14px;
+        font-family: gotham-book;
+        color: $footerListTitle;
+      }
+
+      &-social {
+        margin-bottom: 25px;
+        a {
+          margin-right: 12px;
+          margin-left: 12px;
+
+          &:first-child {
+            margin-left: -7px;
+          }
+        }
+
+        .icon-youtube,
+        .icon-gplus,
+        .icon-twitter,
+        .icon-facebook {
+          width: 30px;
+          height: 30px;
+          fill: $footerListIcons;
+        }
+      }
+    }
+
+  }
+}

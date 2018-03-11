@@ -19,3 +19,12 @@
   background-image: url('/assets/img/search__bg1920.png');
   }
 }
+
+@media (max-width: 767px) {
+  .search {
+    &__title {
+      text-align: center;
+      font-size: 24px;
+    }
+  }
+}

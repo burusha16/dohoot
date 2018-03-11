@@ -38,13 +38,13 @@ class FooterList extends React.Component {
 
     return (
       <div className = "row">
-        <div className = "col-md-4">
+        <div className = "col-sm-6 col-md-4">
           {this.templateTextList(column)}
         </div>
-        <div className = "col-md-4">
+        <div className = "col-sm-6 col-md-4">
           {this.templateTextList(column)}
         </div>
-        <div className = "col-md-4">
+        <div className = "col-sm-12 col-md-4">
           <div className = "footer__list">
             <p className = "footer__list-title">Follow us</p>
             <div className = "footer__list-social">{this.templateSocialList(social)}</div>

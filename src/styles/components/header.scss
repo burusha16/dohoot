@@ -70,6 +70,19 @@
       justify-content: center;
     }
   }
+
+  &__bar {
+    display: none;
+    justify-content: center;
+    width: 40px;
+    background-color: $white;
+
+    .icon-menu {
+      width: 40px;
+      height: 40px;
+      fill: $red;
+    }
+  }
 }
 
 @media (max-width: 1199px) {
@@ -81,6 +94,49 @@
     &__login {
       width: 120px;
       padding-right: 10px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    background-image: none;
+    background-color: #fff;
+    height: 74px;
+    overflow-y: hidden;
+    transition-duration: $timeNormal;
+
+    &__logo {
+      flex-grow: 1;
+    }
+
+    &__navbar {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      order: 1;
+      margin-right: -15px;
+      margin-left: -15px;
+
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+      }
+    }
+
+    &__login {
+      height: 40px;
+      flex-basis: calc(100% + 30px);
+      align-self: flex-end;
+      order: 2;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    &.expanded {
+      height: 315px;
     }
   }
 }

@@ -1,4 +1,10 @@
 class Header extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      expanded: false
+    }
+  }
 
   onSearchCLick() {
     let top = 0;
@@ -49,7 +55,7 @@ class Header extends React.Component {
     });
 
     return (
-      <header className = "header">
+      <header className = {'header' + (this.state.expanded ? ' expanded': '')}>
         <div className ="container">
           <div className = "row">
             <div className = "col-sm-12">
@@ -69,6 +75,11 @@ class Header extends React.Component {
                   <use xlinkHref = "#icon-login" />
                 </svg>
                 <span>Login</span>
+              </button>
+              <button className = "header__bar visible-sm" onClick = {() => {this.setState({expanded: !this.state.expanded})}}>
+                <svg className = "icon-menu">
+                  <use xlinkHref = "#icon-menu" />
+                </svg>
               </button>
             </div>
           </div>

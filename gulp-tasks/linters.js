@@ -6,7 +6,7 @@ let syntax_scss = require('postcss-scss');
 let stylelint = require('stylelint');
 
 gulp.task('js-lint', () => {
-	return gulp.src('src/scripts/*.js')
+	return gulp.src('app/*.js')
 		.pipe(eslint({configFile: 'eslintrc.json', fix: true}) )
 		.pipe(eslint.format())
     .pipe(eslint.result(result => {

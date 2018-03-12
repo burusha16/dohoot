@@ -31,7 +31,8 @@
     "ReactDOM": false,
     "PropTypes": false,
     "EventEmitter": false,
-    "alert": false
+    "alert": false,
+    "fetch": false
   },
 
   "rules": {

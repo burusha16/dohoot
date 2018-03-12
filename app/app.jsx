@@ -2,21 +2,32 @@ class App extends React.Component {
 
   constructor() {
     super();
+    
     this.state = {
       searchFilter: {
         categories: 'recommended',
         city: '',
         action: '',
         keyword: '',
-      }
+      }, 
+      content: []
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let self = this;
+    let state = self.state;
+
+    if(!state.content.length) {
+      self.getData().then( arr => {
+        state.content = arr;
+        self.setState(state);
+      });
+    }
 
     window.ee.addListener('FilterRule.add', function(newRule) {
-      self.setState({searchFilter: newRule});
+      state.searchFilter = newRule;
+      self.setState(state);
     });
 
     window.ee.addListener('newRaiting.add', function(res) {
@@ -29,26 +40,30 @@ class App extends React.Component {
     window.ee.removeListener('newRaiting.add');
   }
 
+  getData() {
+    return fetch('/events/', { 
+      method: 'GET'
+    })
+      .then(dataWrappedByPromise => dataWrappedByPromise.json());
+  }
+
   render() {
     let config = {
-      eventLinesOnPage: 2
-    };
-    let filterValues = {
-      cities: ['Dubai', 'Moscow', 'Kazan', 'London', 'New York'],
-      action: ['Education', 'Travel', 'Music', 'Apartment', 'Shoping']
-    };
-    let data = {
-      eventLinesOnPage: config.eventLinesOnPage,
-      content: db,
+      eventLinesOnPage: 2,
+      filterValues: {
+        cities: ['Dubai', 'Moscow', 'Kazan', 'London', 'New York'],
+        action: ['Education', 'Travel', 'Music', 'Apartment', 'Shoping']
+      },
+      content: this.state.content,
       filterRule: this.state.searchFilter
     };
 
     return (
       <div className="app">
         <Header />
-        <Search data = {filterValues}/>
-        <Filter data = {filterValues}/>
-        <Content data = {data} />
+        <Search data = {config.filterValues}/>
+        <Filter data = {config.filterValues}/>
+        <Content data = {config} />
         <Abilities />
         <Footer />
       </div>

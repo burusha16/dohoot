@@ -1,21 +1,27 @@
 let browserSync = require('browser-sync');
-let connect = require('gulp-connect');
+let nodemon = require('gulp-nodemon');
 let gulp = require('gulp');
 
-
-gulp.task('server-dev', ['removePublic', 'fonts', 'scripts', 'styles', 'views', 'linters'], () => {
-	browserSync({
-		server: {
-			baseDir: 'public'
-		},
-		notify: false
-	});
+gulp.task('server-dev', ['linters', 'express'], () => {
+  browserSync.init(null, {
+    proxy: 'http://localhost:5000',
+    baseDir: 'public',
+    port: 3000,
+    notify: false,
+  });
 });
 
-gulp.task('server-prod', ['removePublic', 'fonts', 'scripts', 'styles', 'views'], () => {
-  connect.server({
-    root: 'public',
-    port: process.env.PORT || 3000,
-    livereload: false
-  });
+gulp.task('express', ['removePublic', 'fonts', 'scripts', 'styles', 'views'], (cb) => { 
+  let started = false;
+  
+  return nodemon({
+    script: 'app/index.js',
+    watch: 'app/'
+  })
+    .on('start', function () {
+      if (!started) {
+        cb();
+        started = true; 
+      } 
+    });
 });

@@ -22,7 +22,7 @@ gulp.task('transformToJs', ['jsx-lint'], () => {
 });
 
 gulp.task('jsx-lint', ['concatJsx'], () => {
-  return gulp.src('src/scripts/**/*.jsx')
+  return gulp.src('app/**/*.jsx')
     .pipe(eslint({configFile: 'eslintrc.json', fix: true}) )
     .pipe(eslint.format())
     .pipe(eslint.result(result => {
@@ -31,10 +31,9 @@ gulp.task('jsx-lint', ['concatJsx'], () => {
 
 gulp.task('concatJsx', () => {
   return gulp.src([
-    'src/scripts/components/import.jsx',
-    'src/scripts/containers/**/*.jsx',
-    'src/scripts/components/**/*.jsx',
-    'src/scripts/app.jsx'
+    'app/import.jsx',
+    'app/components/**/*.jsx',
+    'app/app.jsx'
   ])
   .pipe(concat('app.bundle.jsx'))
   .pipe(gulp.dest('public'));

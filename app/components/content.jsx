@@ -3,16 +3,38 @@ class Content extends React.Component {
     super();
     this.state = {
       pageNumber: 1,
-      elementsAtAll: 0
+      elementsAtAll: 0, 
+      content: [],
+      filterRule: {
+        categories: 'recommended',
+        city: '',
+        action: '',
+        keyword: '',
+      }
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let self = this;
+    let state = self.state;
+
+    if(!state.content.length) {
+      self.getData().then( arr => {
+        state.content = arr;
+        self.setState(state);
+      });
+    }
 
     window.ee.addListener('FilterRule.add', function(newRule) {
-      self.setState({pageNumber: 1, elementsAtAll: 0});
+      state.filterRule = newRule;
+      state.pageNumber = 1;
+      state.elementsAtAll = 0;
+      self.setState(state);
     });
+  }
+
+  componentWillUnmount() {
+    window.ee.removeListener('FilterRule.add');
   }
 
   onMoreItemsClick(e) {
@@ -75,9 +97,16 @@ class Content extends React.Component {
     }).slice(0, maxItemsNumber);
   }
 
+  getData() {
+    return fetch('/events/', { 
+      method: 'GET'
+    })
+      .then(dataWrappedByPromise => dataWrappedByPromise.json());
+  }
+
   render() {
-    let filterRule = this.props.data.filterRule;
-    let content = this.props.data.content;
+    let filterRule = this.state.filterRule;
+    let content = this.state.content;
     let maxEventsOnPage = this.countEventsOnPage();
 
     return (

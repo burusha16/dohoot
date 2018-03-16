@@ -13,20 +13,21 @@ class Filter extends React.Component {
 
   onFilterRuleChange(data) {
     let newRule = {};
+    let state = this.state;
+
     if (data.action) {
-      newRule.action = data.action
-      window.location.hash = '#filters';
-      this.setState({activeFilter: data.action, expanded: this.state.expanded});
-    } else if (data.target.value) {
-      newRule.city = data.target.value;
-      window.location.hash = '#cities';
-      this.setState({activeFilter: data.action, expanded: this.state.expanded});
+      state.activeFilter = newRule.action = data.action;
+      location.hash = '#'+data.action;
+    } 
+    else if (data.target.value) {
+      state.activeFilter = newRule.city = data.target.value;
+      location.hash = '#cities';
     }
     else {
-      newRule.categories = data.target.innerHTML.toLowerCase();
-      this.setState({activeFilter: data.target.innerHTML.toLowerCase(), expanded: this.state.expanded});
+      state.activeFilter = newRule.categories = data.target.innerHTML.toLowerCase();
     }
-
+    
+    this.setState(state);
     window.ee.emit('FilterRule.add', newRule);
   }
 

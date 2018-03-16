@@ -45,7 +45,6 @@ class Header extends React.Component {
         "URL": "#"
       }
     ];
-
     let navigationTemplate = headerNavbar.map((item, i) => {
       return (
         <li key={'headerNav__' + i} className = {'header__navbar-item' + ((i === headerNavbar.length - 1) ? ' hidden-md' : '')} >

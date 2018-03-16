@@ -56,8 +56,8 @@ class Abilities extends React.Component {
   }
 
   render() {
-    let icons = ['apartment', 'shoping', 'education', 'music', 'travel'];
-    let data = {
+    const icons = ['apartment', 'shoping', 'education', 'music', 'travel'];
+    const data = {
       apartment: {
         title: 'Reality',
         firstIcon: 'icon-flash',

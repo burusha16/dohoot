@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://burusha-services.herokuapp.com/">
-    <img width="1440" alt="Duhoot" src="https://user-images.githubusercontent.com/28712079/37281735-0ef3beea-2603-11e8-8e78-5865d8b360ca.png">
+    <img width="1440" alt="Duhoot" src="https://user-images.githubusercontent.com/28712079/37397559-fd4bf370-278c-11e8-93e3-a975547854c9.png">
   </a>
   <br />
   <a href="https://nodejs.org">
@@ -38,4 +38,4 @@ $ gulp build
 * Use `-w` to build developer version with active watcher: `$ gulp build -w`
 
 ### Live Demo
-SmartAdvice application is deployed on heroku (Cloud Application Platform) and aviable by link: [burusha-duhoot](https://burusha-duhoot.herokuapp.com/). The application is frozen (need 30 seconds to srart server and 50 seconds to optimize images).
+Duhoot application is deployed on heroku (Cloud Application Platform) and aviable by link: [burusha-duhoot](https://burusha-duhoot.herokuapp.com/). The application is frozen (need 30 seconds to srart server and 50 seconds to optimize images).
